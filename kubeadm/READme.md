@@ -16,23 +16,22 @@
 
 ## Assign hostname &  login as ‘root’ user because the following set of commands need to be executed with ‘sudo’ permissions.
 
-   sudo hostnamectl set-hostname master
-   sudo -i
+   `sudo hostnamectl set-hostname master`
+   `sudo -i`
 
-``` sh
-#!/bin/bash
-# common.sh
-# copy this script and run in all master and worker nodes
-#i1) Switch to root user [ sudo -i]
-
-sudo hostnamectl set-hostname  node1
-sudo -i
+!/bin/bash
+common.sh
+copy this script and run in all master and worker nodes
+### i1) Switch to root user  
+`sudo -i
+`sudo hostnamectl set-hostname  node1`
+`sudo -i`
 
 #2) Disable swap & add kernel settings
 
-swapoff -a
+``` swapoff -a
 sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
-
+```
 
 #3) Add  kernel settings & Enable IP tables(CNI Prerequisites)
 
